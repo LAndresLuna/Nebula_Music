@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root{
+    --bg-color-dark: #131200;
+    --card-bg-dark: #1c1a05;
+    --text-color-dark: #EDF2F4;
+    --links-color-dark: #EFBDEB;
+    --links-hover-dark: #8D91C7;
+    --nav-links: #8d3fd1;
+    --highlight: #EDF67D;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    font-family: 'QuickSand', 'sans-serif';
+    line-height: 1.6;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--links-color-dark);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--links-hover-dark);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(19, 18, 0, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .logo img{
+    height: 50px;
+    vertical-align: middle;
+}
+
+#menu-toggle{
+    display: none;
+
+}
+
+.menu-button{
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+}
+
+.menu-button span{
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a{
+    color: var(--text-color-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+}
+
+@media (max-width: 768px) {
+    .menu-button {
+        display: flex;
+    }
+
+    nav ul{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(19, 18, 0, 0.98);
+        border-bottom: 2px solid #2A280a;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 20px;
+        display:none;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    #menu-toggle:checked ~ ul {
+        display: flex;
+    }
+
+    #menu-toggle:checked ~ .menu-button span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    #menu-toggle:checked ~ .menu-button span:nth-child(2){
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .menu-button span:nth-child(3){
+        transform: rotate(-45deg) translate(5px, -7px);
+    }
+
+}
